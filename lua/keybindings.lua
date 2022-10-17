@@ -23,8 +23,8 @@ map("n", "<leader>f", ":HopChar2<cr>",opt)
 local pluginKeys = {}
 
 -- Tab切换 buffer
-map("n", "<C-tab>", ":bn<CR>", opt)
-map("n", "<C-S-tab>", ":bp<CR>", opt)
+map("n", "<C-tab>", ":BufferLineCycleNext<CR>", opt)
+map("n", "<C-S-tab>", ":BufferLineCyclePrev<CR>", opt)
 -- 关闭
 --"moll/vim-bbye"
 map("n", "<C-w>", ":Bdelete!<CR>", opt)
@@ -67,23 +67,24 @@ pluginKeys.telescopeList = {
 }
 
 -- lsp 回调函数快捷键设置
-pluginKeys.mapLSP = function(mapbuf)
+-- pluginKeys.mapLSP = function(mapbuf)
   -- rename
-  mapbuf("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opt)
+  map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opt)
   -- code action
-  mapbuf("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opt)
+  -- mapbuf("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opt)
   -- go xx
-  mapbuf("n", "gd", "<cmd>Lspsaga preview_definition<CR>", opt)
-  mapbuf("n", "gh", "<cmd>Lspsaga hover_doc<CR>", opt)
-  mapbuf("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
-  mapbuf("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
-  mapbuf("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
+  map("n", "<C-k>", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
+  map("n", "<C-h>", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
+  map("n", "<leader>r", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
+  -- 这几个不起作用。。
+  -- mapbuf("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
+  -- mapbuf("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
   -- diagnostic
-  mapbuf("n", "gp", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)
-  mapbuf("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opt)
-  mapbuf("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)
-  mapbuf("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opt)
-end
+  -- mapbuf("n", "gp", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)
+  -- mapbuf("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opt)
+  -- mapbuf("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)
+  -- mapbuf("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opt)
+-- end
 
 pluginKeys.cmp = function(cmp)
     return {

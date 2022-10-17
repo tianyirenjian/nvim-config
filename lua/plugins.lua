@@ -13,6 +13,12 @@ packer.startup({
     use("phaazon/hop.nvim")
 
     -- 代码相关
+    use {
+      'lewis6991/gitsigns.nvim',
+      config = function()
+        require('gitsigns').setup()
+      end
+    }
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
     use({ "williamboman/mason.nvim" })
     use({ "williamboman/mason-lspconfig.nvim" })
@@ -29,7 +35,6 @@ packer.startup({
     use("hrsh7th/cmp-path") -- { name = 'path' }
     use("hrsh7th/cmp-cmdline") -- { name = 'cmdline' }
     use("onsails/lspkind-nvim")
-    -- use("tami5/lspsaga.nvim" )
 
     -- 常见编程语言代码段
     use("rafamadriz/friendly-snippets")
