@@ -25,6 +25,15 @@ local pluginKeys = {}
 -- Tab切换 buffer
 map("n", "<C-tab>", ":BufferLineCycleNext<CR>", opt)
 map("n", "<C-S-tab>", ":BufferLineCyclePrev<CR>", opt)
+map("n", "<C-1>", ":BufferLineGoToBuffer 1<CR>", opt)
+map("n", "<C-2>", ":BufferLineGoToBuffer 2<CR>", opt)
+map("n", "<C-3>", ":BufferLineGoToBuffer 3<CR>", opt)
+map("n", "<C-4>", ":BufferLineGoToBuffer 4<CR>", opt)
+map("n", "<C-5>", ":BufferLineGoToBuffer 5<CR>", opt)
+map("n", "<C-6>", ":BufferLineGoToBuffer 6<CR>", opt)
+map("n", "<C-7>", ":BufferLineGoToBuffer 7<CR>", opt)
+map("n", "<C-8>", ":BufferLineGoToBuffer 8<CR>", opt)
+map("n", "<C-9>", ":BufferLineGoToBuffer 9<CR>", opt)
 -- 关闭
 --"moll/vim-bbye"
 map("n", "<C-w>", ":Bdelete!<CR>", opt)
