@@ -11,6 +11,7 @@ packer.startup({
     use { 'nvim-telescope/telescope.nvim', requires = { "nvim-lua/plenary.nvim" } }
     use("windwp/nvim-autopairs")
     use("phaazon/hop.nvim")
+    use("natecraddock/sessions.nvim")
 
     -- 代码相关
     use {
